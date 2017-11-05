@@ -1,39 +1,4 @@
 <template>
-  <!--<v-tabs dark fixed centered>
-    <v-toolbar extended color="light-green darken-1" dark>
-      <v-spacer></v-spacer>
-      <v-btn icon>
-        <v-icon>search</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon>more_vert</v-icon>
-      </v-btn>
-      <v-toolbar-title slot="extension" class="display-2">Account Summary</v-toolbar-title>
-    </v-toolbar>
-    <v-tabs-bar class="light-green darken-1">
-      <v-tabs-slider class="white"></v-tabs-slider>
-      <v-tabs-item
-        v-for="i in items"
-        :key="i"
-        :href="'#tab-' + i"
-      >
-        {{ i }}
-      </v-tabs-item>
-    </v-tabs-bar>
-    <v-tabs-items>
-      <v-tabs-content
-        v-for="i in items"
-        :key="i"
-        :id="'tabs-' + i"
-      >
-        <v-card flat>
-          <v-card-text>
-          blah
-          </v-card-text>
-        </v-card>
-      </v-tabs-content>
-    </v-tabs-items>
-  </v-tabs>-->
   <div>
     <h1>Transactions</h1>
     <div id="app">
@@ -57,9 +22,56 @@
             </tr>
           </template>
           <template slot="expand" scope="props">
-            <v-card flat>
-              <v-card-text>Potential savings: {{props.item.alternativePurchases[0].alternative }}</v-card-text>
-            </v-card>
+
+            <v-container fluid grid-list-md class="grey lighten-4">
+            <v-layout row wrap>
+              <v-flex
+                v-bind="{ [`xs6`]: true }"
+                v-for="prop in props.item.alternativePurchases"
+                :key="prop.transaction_row_id"
+              >
+
+                <v-card v-if="prop.category === 'Travel'" img="http://content-thumbnail.cxpublic.com/content/dominantthumbnail/78e7928675d8eb1c30d38ed0fe49df217e51094c.jpg?59f0cdcd">
+                  <v-card-media
+                    :src="props.image"
+                    height="200px"
+                  >
+                    <v-container fill-height fluid>
+                      <v-layout fill-height>
+                        <v-flex xs6 align-end flexbox>
+                          <span class="headline black--text" v-text="prop.alternative"></span>
+                        </v-flex>
+                      </v-layout>
+                    </v-container>
+                  </v-card-media>
+                  <v-card-actions>
+                    <span class="headline white--text" v-text="prop.amount"></span>
+                    <span class="headline white--text">Points: 100</span>
+                    </v-card-actions>
+                </v-card>
+                <v-card v-if="prop.category != 'Travel'" :img="prop.image">
+                  <v-card-media
+                    :src="props.image"
+                    height="200px"
+                  >
+                    <v-container fill-height fluid>
+                      <v-layout fill-height>
+                        <v-flex xs6 align-end flexbox>
+                          <span class="headline black--text" v-text="prop.alternative"></span>
+                          <span class="headline black--text" v-text="prop.amount"></span>
+                        </v-flex>
+                      </v-layout>
+                    </v-container>
+                  </v-card-media>
+                  <v-card-actions>
+                    Cost: <span class="headline white--text" v-text="prop.amount"></span>
+                    <span class="headline white--text">Points: 100</span>
+                  </v-card-actions>
+                </v-card>
+              </v-flex>
+            </v-layout>
+            </v-container>
+
           </template>
         </v-data-table>
       </v-app>
@@ -95,7 +107,8 @@ import CapitalOneApiResource from '../services/CapitalOneApiResource';
         posts: [],
         errors: [],
         headers: this.headers,
-        items: this.items
+        items: this.items,
+        image: 'http://content-thumbnail.cxpublic.com/content/dominantthumbnail/78e7928675d8eb1c30d38ed0fe49df217e51094c.jpg?59f0cdcd'
       }
     },
 
