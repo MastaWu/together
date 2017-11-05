@@ -52,6 +52,22 @@ export default class CapitalOneApiResource {
 		});
 	}
 
+	getTransactionsWithAlternates(callback) {
+		var accountId = this.session.getAccountId();
+
+		$.ajax({
+		   url: 'http://192.168.1.46:8080/api/transactions/getAllTransactions',
+		   type: 'POST',
+		   headers: {
+		      'Content-Type':'application/x-www-form-urlencoded'
+		   },
+		   data: JSON.stringify(),
+		   success: function(data) {
+		      callback(data);
+		   }
+		});
+	}
+
 	getRewards() {
 		var accountId = this.session.getAccountId();
 
