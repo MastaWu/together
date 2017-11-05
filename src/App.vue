@@ -43,12 +43,13 @@
       <v-spacer></v-spacer>
         <div class="text-xs-center">
           <v-badge overlay left color="green accent-1" overlap>
-            <v-icon
-                large
-                color="white"
+            <v-btn icon>
+              <v-icon
+               large
+               color="white"
               >
-                account_circle
-              </v-icon>
+              account_circle</v-icon>
+            </v-btn>
           </v-badge>
         </div>
     </v-menu>
@@ -63,7 +64,7 @@
         </v-container>
       </v-content>
     </main>
-    <v-footer color="green lighten-2" class="white--text" app>
+    <v-footer color="green darken-1" class="white--text" app>
       <span>Together</span>
       <v-spacer></v-spacer>
       <span>&copy; 2017</span>
