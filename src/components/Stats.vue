@@ -27,7 +27,7 @@
     <div class="flex xs4">
       <div class="card" style="height: 150px;">
         <div class="card__text px-0">
-          <div style="display: inline; font-size: large;">Total Savings</div>
+          <div style="display: inline; font-size: large;">Potential Savings</div>
           <div class="iOdometer">
             <i-odometer
               class="iOdometer"
@@ -42,7 +42,7 @@
     <div class="flex xs4">
       <div class="card" style="height: 150px;">
         <div class="card__text px-0">
-          <div style="display: inline; font-size: large;">YTD Capital One Money Market: </div>
+          <div style="display: inline; font-size: large;">Potential savings into YTD Capital One Money Market: </div>
           <div class="iOdometer">
             <i-odometer
               class="iOdometer"
@@ -57,7 +57,7 @@
     <div class="flex xs4">
       <div class="card" style="height: 150px;">
           <div class="card__text px-0">
-          <div style="display: inline; font-size: large;">YTD return on S&P 500</div>
+          <div style="display: inline; font-size: large;">Potential savings into S&P 500 index fund</div>
           <div class="iOdometer">
             <i-odometer
               class="iOdometer"
