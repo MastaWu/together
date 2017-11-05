@@ -81,7 +81,8 @@
         items: [
           { title: 'Home', icon: 'dashboard', path: '/' },
           { title: 'Transaction', icon: 'credit_card', path: '/transaction' },
-          { title: 'Contact', icon: 'question_answer', path: '/contact' }
+          { title: 'Contact', icon: 'question_answer', path: '/contact' },
+          { title: 'Stats', icon: 'pie_chart', path: '/stats' }
         ],
         right: null
       }
